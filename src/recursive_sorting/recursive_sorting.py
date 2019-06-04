@@ -1,33 +1,59 @@
+import math
 # TO-DO: complete the helpe function below to merge 2 sorted arrays
 def merge( arrA, arrB ):
     elements = len( arrA ) + len( arrB )
     merged_arr = [0] * elements
     # TO-DO
-    counter = 0
-    while len(arrA) and len(arrB):
-        if arrA[0] < arrB[0]:
-            merged_arr[counter] = arrA.pop(0)
-            counter += 1
+    arrA_counter = 0
+    arrB_counter = 0
+    merged_arr_counter = 0
+
+    while arrA_counter < len(arrA) and arrB_counter < len(arrB):
+        if arrA[arrA_counter] < arrB[arrB_counter]:
+            merged_arr[merged_arr_counter] = arrA[arrA_counter]
+            print('a', merged_arr)
+            arrA_counter += 1
+            merged_arr_counter += 1
         else:
-            merged_arr[counter] = arrB.pop(0)
-            counter += 1
+            merged_arr[merged_arr_counter] = arrA[arrB_counter]
+            print('b', merged_arr)
+            
+            arrB_counter += 1
+            merged_arr_counter += 1
     
-    while len(arrA):
-        merged_arr[counter] = arrA.pop(0)
-        counter += 1
+    while arrA_counter < len(arrA):
+        merged_arr[merged_arr_counter] = arrA[arrA_counter]
+        arrA_counter += 1
+        merged_arr_counter += 1
     
-    while len(arrB):
-        merged_arr[counter] = arrB.pop(0)
-        counter += 1
+    while arrB_counter < len(arrB):
+        merged_arr[merged_arr_counter] = arrB[arrB_counter]
+        arrB_counter += 1
+        merged_arr_counter += 1
 
     return merged_arr
 
 
-print('merge test', merge([1,3,5,7],[2,4,6,8]))
+print('merge test ', merge([1,5,9,3,55],[2]))
 
 # TO-DO: implement the Merge Sort function below USING RECURSION
 def merge_sort( arr ):
     # TO-DO
+    # break down the array into component parts until they hit 1, then start combining them using merge(). Recursion for breakdown controlled by length of array
+    if len(arr)==1:
+        return
+    
+    midpoint = math.floor(len(arr)/2)
+    leftArr = arr[0:midpoint]
+    rightArr = arr[midpoint:]
+
+    print('left', leftArr)
+    print('right', rightArr)
+
+    merge_sort(leftArr)
+    merge_sort(rightArr)
+
+   
 
 
     return arr
