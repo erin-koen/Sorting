@@ -56,3 +56,15 @@ def integerPairs(arr, num):
 
 
 integerPairs([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 11)
+
+
+# writing a loop with recursion
+def loop(a, b):
+    if a == b:
+        return
+    
+    print(a)
+    loop(a+1, b)
+ 
+
+loop(0,10)
