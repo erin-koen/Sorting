@@ -15,9 +15,8 @@ def merge( arrA, arrB ):
             arrA_counter += 1
             merged_arr_counter += 1
         else:
-            merged_arr[merged_arr_counter] = arrA[arrB_counter]
+            merged_arr[merged_arr_counter] = arrB[arrB_counter]
             print('b', merged_arr)
-            
             arrB_counter += 1
             merged_arr_counter += 1
     
@@ -34,7 +33,7 @@ def merge( arrA, arrB ):
     return merged_arr
 
 
-print('merge test ', merge([1,5,9,3,55],[2]))
+print('merge test ', merge([1,5,9,3,55],[2, 4]))
 
 # TO-DO: implement the Merge Sort function below USING RECURSION
 def merge_sort( arr ):
